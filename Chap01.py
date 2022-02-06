@@ -122,3 +122,7 @@ print(all_distinct(data))
     
 #C1.16
 
+# Although numeric types are immutable, lists are mutable. The scale function creates a new object, its reference is stored in the original list structure. 
+# The changes in the list are the references to new objects.
+
+#C1.17
