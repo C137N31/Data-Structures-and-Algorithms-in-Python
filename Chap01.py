@@ -49,6 +49,7 @@ print (sumsquare(-1))
 print (sumsquare(3.54))
 
 #R1.6
+#R1.7
 
 def sumsquare(n:int):
     assert type(n) == int, 'input integer'
