@@ -126,3 +126,47 @@ print(all_distinct(data))
 # The changes in the list are the references to new objects.
 
 #C1.17
+
+def scale(data, factor):
+    for val in data:
+        val *= factor
+
+def realscale(data, factor):
+    for i in range(len(data)):
+        data[i] *= factor
+
+data = [1, 3, 4, 7, 6, 9, 2]    
+print(data)
+scale(data,2)
+print(data)
+realscale(data,2)
+print(data)
+
+[1, 3, 4, 7, 6, 9, 2]
+[1, 3, 4, 7, 6, 9, 2]
+[2, 6, 8, 14, 12, 18, 4]
+
+# val *= factor creates a new instance of val, but doesn't change the reference to the original object in the list
+# data[i] changes the reference to element i, which changes the original array
+
+#C1.18
+
+def gen_list():
+    a = 0
+    i = 0
+    while True:
+        yield a
+        i += 1
+        a += 2*i
+
+list = gen_list()
+
+print([next(list) for _ in range(10)])
+
+#C1.19
+
+# chr(97) = 'a'
+[chr(97+i) for i in range(26)]
+
+#C1.20
+
