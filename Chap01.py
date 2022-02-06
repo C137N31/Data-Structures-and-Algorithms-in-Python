@@ -94,3 +94,16 @@ def reverse(data):
 
 data = [1, 3, 4, 7, 6, 9, 2]    
 print(reverse(data))    
+
+#C1.14
+
+def product_odd(data):
+    for i in range(len(data)):
+        for j in range(i,len(data)):
+            if data[i] != data[j] and (data[i]*data[j])&1 == 1:
+                yield (data[i], data[j])
+
+data = [1, 3, 4, 7, 6, 9, 2]    
+oddpair = product_odd(data)
+for op in oddpair:
+    print(op)
