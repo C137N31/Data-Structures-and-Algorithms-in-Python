@@ -76,3 +76,11 @@ list(range(8,-9,-2))
 [2**n for n in range(9)]
 
 #R1.12
+import random
+
+def randomchoice(data):
+    return data[random.randrange(0,len(data))]
+
+data = [1, 3, 4, 6, 9, 2]    
+for i in range(3):
+    print(randomchoice(data), end=' ')
