@@ -84,3 +84,13 @@ def randomchoice(data):
 data = [1, 3, 4, 6, 9, 2]    
 for i in range(3):
     print(randomchoice(data), end=' ')
+
+#C1.13
+
+def reverse(data):
+    for i in range(len(data)//2):
+        data[i], data[len(data)-i-1] = data[len(data)-i-1], data[i]
+    return data
+
+data = [1, 3, 4, 7, 6, 9, 2]    
+print(reverse(data))    
