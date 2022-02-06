@@ -62,3 +62,17 @@ def sumsquare(n:int):
 print (sumsquare(9))
 print (sumsquare(-1))
 print (sumsquare(3.54))
+
+#R1.8
+j = n+k
+
+#R1.9
+list(range(50,90,10))
+
+#R1.10
+list(range(8,-9,-2))
+
+#R1.11
+[2**n for n in range(9)]
+
+#R1.12
