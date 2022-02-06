@@ -21,3 +21,14 @@ print (is_even(0))
 print (is_even(3))
 print (is_even(4))
 print (is_even(-4))
+
+#R1.3
+
+def minmax(data):
+    minn = maxn= data[0]
+    for n in data:
+        if minn > n: minn = n
+        if maxn < n: maxn = n
+    return(minn,maxn)
+
+print (minmax((2,4,9,2,5,5,7)))
