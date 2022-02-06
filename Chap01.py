@@ -34,6 +34,7 @@ def minmax(data):
 print (minmax((2,4,9,2,5,5,7)))
 
 #R1.4
+#R1.5
 
 def sumsquare(n:int):
     assert type(n) == int, 'input integer'
