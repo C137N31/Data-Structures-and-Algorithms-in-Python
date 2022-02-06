@@ -107,3 +107,18 @@ data = [1, 3, 4, 7, 6, 9, 2]
 oddpair = product_odd(data)
 for op in oddpair:
     print(op)
+
+#C1.15
+
+def all_distinct(data):
+    for i in range(len(data)):
+        for j in range(i+1,len(data)):
+            if data[i] == data[j]:
+                return False
+    return True
+
+data = [1, 3, 4, 7, 6, 9, 2]    
+print(all_distinct(data))
+    
+#C1.16
+
