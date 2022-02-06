@@ -9,3 +9,15 @@ print (is_multiple(0,0))
 print (is_multiple(3,2))
 print (is_multiple(4,2))
 print (is_multiple(-4,2))
+
+#R1.2
+
+def is_even(n:int):
+    assert  type(n) == int, "input integer"
+    return ( n&1 == 0 )
+
+print (is_even(2.5))
+print (is_even(0))
+print (is_even(3))
+print (is_even(4))
+print (is_even(-4))
