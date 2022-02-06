@@ -47,3 +47,17 @@ def sumsquare(n:int):
 print (sumsquare(9))
 print (sumsquare(-1))
 print (sumsquare(3.54))
+
+#R1.6
+
+def sumsquare(n:int):
+    assert type(n) == int, 'input integer'
+    if n < 1:
+        print('input positive integer')
+        return False
+       
+    return(sum(i*i for i in range(1,n,2)))
+
+print (sumsquare(9))
+print (sumsquare(-1))
+print (sumsquare(3.54))
