@@ -282,3 +282,22 @@ arithmetric(11,22,10)
 
 #C1.27
 
+def factors(n):
+    k = 1
+    a = []
+    b = []
+    while k*k < n:
+        if n%k == 0:
+            a.append(k)
+            b.append(n//k)
+        k += 1
+    if k*k == n:
+        a.append(k)
+    b.reverse()
+    return a+b
+
+a = factors(100)
+print(a)
+
+#C1.28
+
