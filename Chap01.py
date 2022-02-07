@@ -434,3 +434,29 @@ def print100(sen, num_typo=8, num_total=100):
 print100("I will never spam my friends again.")
 
 #P1.35
+
+import random
+
+def test_birthday(n):
+    birthdays = [random.randrange(0,365) for _ in range(n)]
+    diff_birthday = []
+    for day in birthdays:
+        if day in diff_birthday:
+            return True
+        else:
+            diff_birthday.append(day)
+    return False
+
+def same_birthday(n, experiment_count = 1000):
+    same_count = 0
+    for _ in range(experiment_count):
+        if test_birthday(n):
+            same_count += 1
+    return (same_count/experiment_count)
+    
+
+for n in range(5,101,5):
+    print(f"n={n:d}, p={same_birthday(n):.4f}", end = '; ')
+    
+#P1.36
+
