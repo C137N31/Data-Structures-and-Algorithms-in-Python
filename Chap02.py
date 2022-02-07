@@ -105,3 +105,37 @@ class CreditCardBalance(CreditCard):
 
 #R2.8
 
+#The 3rd card California Finance
+
+#R2.9
+
+    def __sub__(self, other):
+        if len(self) != len(other):
+            raise ValueError('dimensions must agree')
+        result = Vector(len(self))
+        for j in range (len(self)):
+            result[j] = self[j] - other[j]
+        return result
+
+#R2.10
+
+class VectorwNeg(Vector):
+    def __neg__(self):
+        result = Vector(len(self))
+        for i in range(len(self)):
+            result[i] = -self[i]
+        return result        
+
+v1 = VectorwNeg(5)
+v2 = VectorwNeg(5)
+
+for i in range(5):
+    v1[i] = 8
+    v2[i] = i
+
+print(v1,v2)
+print(v1-v2)    
+print(v1,-v2)
+
+#R2.11
+
