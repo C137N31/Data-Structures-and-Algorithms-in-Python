@@ -404,3 +404,33 @@ calculator()
 
 #P1.34
 
+import random
+
+def typo(sen, char_range):
+    i = random.randrange(0,len(sen))
+    c = random.choice(char_range)
+    sen_typo = list(sen)
+    sen_typo[i] = chr(c)
+    return(''.join(sen_typo))
+
+def print100(sen, num_typo=8, num_total=100):
+    char_range = list(range(ord('A'), ord('Z')+1)) + list(range(ord('a'), ord('z')+1))
+
+    typo_lines = []
+    i = 0
+
+    while i < num_typo:
+        typo_line = random.randrange(0,num_total)
+        if typo_line not in typo_lines:
+            typo_lines.append(typo_line)
+            i += 1
+
+    for j in range(num_total):
+        if j in typo_lines:
+            print(f"{j+1:d}- {typo(sen,char_range)}")
+        else:
+            print(f"{j+1:d}. {sen}")
+
+print100("I will never spam my friends again.")
+
+#P1.35
