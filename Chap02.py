@@ -97,3 +97,11 @@ print(rose.get_name(), rose.get_petal(), rose.get_price())
 
 #R2.7
 
+class CreditCardBalance(CreditCard):
+    def __init__(self, customer, bank, acnt, limit, balance = 0):
+        super().__init__(customer, bank, acnt, limit)
+
+        self._balance = balance
+
+#R2.8
+
