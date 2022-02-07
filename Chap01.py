@@ -255,3 +255,17 @@ print(vowel_count(a))
 
 #C1.25
 
+def punctuation_remove(a):
+    b = ''
+    punctuation = ",.;:!?'"
+    for letter in a:
+        if letter not in punctuation:
+            b = b + letter
+    return b
+
+a = "Don't try buffer overflow attacks in Python!"
+
+print(punctuation_remove(a))
+
+#C1.26
+
