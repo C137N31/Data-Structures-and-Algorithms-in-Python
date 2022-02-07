@@ -191,3 +191,20 @@ print(shuffle2(data))
 
 #C1.21
 
+def readfile(filepath):
+    file = open(filepath)
+    lines = []
+
+    while True:
+        try:
+            line = file.readline()
+            if line == '': raise EOFError
+            lines.append(line[:-1])
+        except EOFError:
+            for line in reversed(lines):
+                print(line)
+            return
+
+readfile(r'Project/Exercises/Chap01/test.txt')
+
+#C1.22
