@@ -460,3 +460,15 @@ for n in range(5,101,5):
     
 #P1.36
 
+def word_count(sen):
+    sen = sen.lower()
+    word_list = sen.split(' ')
+    words = {}
+    for word in word_list:
+        if word in words:
+            words[word] += 1
+        else:
+            words[word] = 1
+    return words
+    
+print(word_count("I will never spam my friends again and again"))
