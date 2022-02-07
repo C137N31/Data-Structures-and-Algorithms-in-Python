@@ -208,3 +208,19 @@ def readfile(filepath):
 readfile(r'Project/Exercises/Chap01/test.txt')
 
 #C1.22
+
+def dot_product(a,b):
+    assert len(a) == len(b), 'Error, lengths must be euqal'
+    c = [None]*len(a)
+
+    for i in range(len(a)):
+        c[i] = a[i]*b[i]
+
+    return c
+
+a = [1,3,5]
+b = [3,5,6]
+
+print(dot_product(a,b))
+
+#C1.23
