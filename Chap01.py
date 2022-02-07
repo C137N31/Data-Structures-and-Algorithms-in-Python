@@ -347,3 +347,17 @@ def divide2(n):
 print(divide2(8))
 
 #P1.31
+
+def make_change(charged, given, coins=[100,20,10,5,2,1,0.25,0.1,0.05,0.01]):
+    assert given >= charged, 'not given enough!'
+    change = {}
+    residual = given-charged
+    
+    for coin in coins:
+        amount, residual = divmod(residual,coin)
+        if amount > 0: change[coin] = int(amount)
+    return change
+
+print(make_change(6.66, 8.88))
+
+#P1.32
