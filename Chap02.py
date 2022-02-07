@@ -149,3 +149,16 @@ print(v1,-v2)
 
 #R2.12
 
+    def __mul__(self, factor):
+        try:
+            factor = float(factor)
+            result = Vector(len(self))
+            for j in range(len(self)):
+                result[j] = self[j] * factor
+            return result
+        except:
+            print('Invalid factor')
+            return False
+
+#R2.13
+
