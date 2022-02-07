@@ -313,3 +313,21 @@ print(norm([3,4,5],3))
 
 #P1.29
 
+def words(suba,b):
+    if len(suba) == 1:
+        #print (''.join(list(map(str, b+suba))), end = ',')
+        print (''.join(b+suba), end = ',')
+        return
+    else:
+        for i in range(len(suba)):
+            newa = [suba[j] for j in range(len(suba)) if j != i]
+            words(newa,b+[suba[i]])
+
+def all_combo(a):
+    assert len(a)>0, 'string is null'
+    words(list(a),[])
+
+all_combo('catdog')
+
+#P1.30
+
