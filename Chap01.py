@@ -242,3 +242,16 @@ print(a)
 
 #C1.24
 
+def vowel_count(a):
+    count = 0
+    for letter in a:
+        if letter in 'aeiouAEIOU':
+            count += 1
+    return count
+
+a = "Don't try buffer overflow attacks in Python!"
+
+print(vowel_count(a))
+
+#C1.25
+
