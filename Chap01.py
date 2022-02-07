@@ -361,3 +361,46 @@ def make_change(charged, given, coins=[100,20,10,5,2,1,0.25,0.1,0.05,0.01]):
 print(make_change(6.66, 8.88))
 
 #P1.32
+#P1.33
+
+def calculate(m, operand, n):
+    if operand == '+': return m+n
+    elif operand == '-': return m-n
+    elif operand == '*': return m*n
+    elif operand == '/': return m/n
+    else: return 'operand invalid'
+
+def convert_to_number(str):
+    try:
+        return(float(str))
+    except ValueError:
+        print('Invalid input number')
+        return None
+
+def calculator():
+    operands = ['+', '-', '*', '/']
+    m = n = operand = None
+    input_str = input()
+    
+    while input_str != 'exit' and input_str != '':
+        if input_str == 'clear':
+            m = n = operand = None
+        elif m == None:
+            m = convert_to_number(input_str)
+        elif operand == None:
+            if input_str in operands:
+                operand = input_str
+            else:
+                m = convert_to_number(input_str)
+        else:
+            n = convert_to_number(input_str)
+            print(f"{m}{operand}{n}={calculate(m, operand, n)}")
+            m = n = operand = None
+
+        input_str = input()
+
+print('Start')
+calculator()
+
+#P1.34
+
