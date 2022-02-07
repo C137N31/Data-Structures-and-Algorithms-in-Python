@@ -58,3 +58,42 @@ print(rose.get_name(), rose.get_petal(), rose.get_price())
 
 #R2.5
 
+    def charge(self, price):
+        try:
+            price = float(price) 
+        except:
+            print ('Invalid price')
+            return False       
+        if price+self._balance >self._limit:
+            print(f'Your deposit of {price} exceeds your remainder of {self.get_limit()-self.get_balance()}')
+            return False
+        else:
+            self._balance += price
+            return True
+        
+    def make_payment(self, amount):
+        try:
+            amount = float(amount) 
+        except:
+            print ('Invalid payment')
+            return False 
+        self._balance -= amount
+        return True
+
+#R2.6
+
+    def make_payment(self, amount):
+        try:
+            amount = float(amount) 
+        except:
+            print ('Invalid payment')
+            return False 
+        
+        if amount < 0:
+            raise ValueError('payment cannot be negative')
+        else:
+            self._balance -= amount
+            return True
+
+#R2.7
+
