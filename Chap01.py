@@ -269,3 +269,16 @@ print(punctuation_remove(a))
 
 #C1.26
 
+def arithmetric(a,b,c):
+    if a+b == c: print(f"{a:d}+{b:d}={c:d}")
+    elif a == b-c: print(f"{a:d}={b:d}-{c:d}")
+    elif a*b == c: print(f"{a:d}*{b:d}={c:d}")
+    else: print('no suitable arithmetric formula')
+
+arithmetric(11,22,33)
+arithmetric(11,22,11)
+arithmetric(11,2,22)
+arithmetric(11,22,10)
+
+#C1.27
+
