@@ -331,3 +331,19 @@ all_combo('catdog')
 
 #P1.30
 
+def d2c(n,c):
+    newn = n/2
+    if newn < 2:
+        return
+    c[0] += 1
+    d2c(newn,c)
+
+def divide2(n):
+    assert type(n) == int and n > 0, 'number must be positive integer'
+    c = [0]
+    d2c(n,c)
+    return c[0]
+
+print(divide2(8))
+
+#P1.31
