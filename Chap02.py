@@ -162,3 +162,36 @@ print(v1,-v2)
 
 #R2.13
 
+    def __rmul__(self, factor):
+        try:
+            factor = float(factor)
+            result = Vector(len(self))
+            for j in range(len(self)):
+                result[j] = self[j] * factor
+            return result
+        except:
+            print('Invalid factor')
+            return False
+
+#R2.14
+
+    def __mul__(self, other):
+        try:
+            if len(self) == len(other):
+                result = 0
+                for j in range(len(self)):
+                    result += self[j] * other[j]
+                return result
+        except:
+            try:
+                other = float(other)
+                result = Vector(len(self))
+                for j in range(len(self)):
+                    result[j] = self[j] * other
+                return result
+            except:
+                print('Invalid factor')
+                return False
+
+#R2.15
+
