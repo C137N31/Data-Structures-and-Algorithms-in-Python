@@ -139,3 +139,13 @@ print(v1,-v2)
 
 #R2.11
 
+    def __radd__(self, other):
+        if len(self)!=len(other):
+            raise ValueError('Dimensions must match')
+        result = Vector(len(self))
+        for j in range(len(self)):
+            result[j] = self[j] + other[j]
+        return result
+
+#R2.12
+
