@@ -224,3 +224,21 @@ b = [3,5,6]
 print(dot_product(a,b))
 
 #C1.23
+
+def index_handle(a, index, value):
+    try:
+        a[index] = value
+    except IndexError:
+        print("Don't try buffer overflow attacks in Python!")
+
+a = [1,3,5,4,8]
+
+index_handle(a,9,11)
+index_handle(a,2,22)
+index_handle(a,-1,33)
+index_handle(a,-8,44)
+
+print(a)
+
+#C1.24
+
