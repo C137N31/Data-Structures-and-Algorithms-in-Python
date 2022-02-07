@@ -301,3 +301,15 @@ print(a)
 
 #C1.28
 
+def norm(v, p=2):
+    assert p!=0, 'p cannot be 0'
+    t = 0
+    for vi in v:
+        t += vi**p
+    return(t**(1/p))
+
+print(norm([3,4]))
+print(norm([3,4,5],3))
+
+#P1.29
+
