@@ -170,3 +170,24 @@ print([next(list) for _ in range(10)])
 
 #C1.20
 
+import random
+
+def shuffle2(data):
+    shuffledata = []
+    indices = set()
+    for i in range(len(data)):
+        j = random.randint(0,len(data)-1)
+        while j in indices:
+            j = random.randint(0,len(data)-1)
+
+        shuffledata.append(data[j])
+        indices.add(j)
+    
+    return shuffledata
+    
+data = [1, 3, 4, 7, 6, 9, 2]
+
+print(shuffle2(data))
+
+#C1.21
+
