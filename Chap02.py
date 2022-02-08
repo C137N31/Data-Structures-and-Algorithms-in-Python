@@ -470,3 +470,20 @@ class PredatoryCreditCard2(CreditCard):
         self._num_charges = 0 #reset the counter at the beginning of each month
         
 #R2.31        
+
+class AbsDiffProgression(Progression):
+    def __init__(self, first=2, second=200):
+        super().__init__(first)
+        self._prev = second + first
+    
+    def _advance(self):
+        self._prev, self._current = self._current, abs(self._current - self._prev)
+
+    def print(self, n):
+        m = 0
+        for j in range(n):
+            m = next(self)
+        print (m)
+
+#R2.32
+
