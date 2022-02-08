@@ -204,3 +204,57 @@ class VectorD(Vector):
 
 #R2.16            
 
+# stop-start is the total number of elements for step=1
+# considering step, we need add step-1 to get the last element by using // which is floor integer
+
+#R2.17
+
+class Goat(object):
+    def __init__(self, tail):
+        super().__init__()
+        self._tail = tail
+    
+    def __milk()
+        return
+    
+    def __jump()
+        return
+    
+#R2.18
+
+class Progression():
+    def __init__(self, start=0):
+        self._current = start
+    def _advance(self):
+        self._current += 1
+    def __next__(self):
+        if self._current is None:
+            raise StopIteration()
+        else:
+            answer = self._current
+            self._advance()
+            return answer
+    def __iter__(self):
+        return self
+    def print_progression(self, n):
+        print (' '.join(str(next(self)) for j in range(n)))
+
+class FibonacciProgression(Progression):
+    def __init__(self, first=0, second=1):
+        super().__init__(first)
+        self._prev = second - first
+    
+    def _advance(self):
+        self._prev, self._current = self._current, self._prev + self._current
+
+    def print(self, n):
+        m = 0
+        for j in range(n):
+            m = next(self)
+        print (m)
+
+f = FibonacciProgression(2,2)    
+f.print(8)
+
+#R2.19
+
