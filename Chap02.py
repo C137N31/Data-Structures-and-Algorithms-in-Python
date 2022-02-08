@@ -258,3 +258,20 @@ f.print(8)
 
 #R2.19
 
+max(0, (stop - start + step - 1) // step) = 2**63 / 2**7 = 2**56
+
+#R2.20
+
+# If behaviour changes in A without D knowing (ex. different teams or people working on it), 
+# it can be very difficult to troubleshoot the problems
+
+
+# You also have a larger chance of namespace conflicts that you aren't aware of 
+# (ex. C overrides a function from B that you don't know about)
+
+#R2.21
+
+# If any of the classes change, it will mess up the entire Z subclass
+
+#R2.22
+
