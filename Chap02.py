@@ -396,3 +396,51 @@ r = Range(-100, step = -1)
 print (len(r), r[101], 4 in r, -5 in r)
 
 #R2.28
+
+class PredatoryCreditCard(CreditCard):
+    MAX_CHARGES = 10
+    def __init__(self, customer, bank, acnt, limit, apr):
+        super().__init__(customer, bank, acnt, limit)
+        self._apr = apr
+        self._num_charges = 0
+        
+    def charge(self, price):
+        success = super().charge(price)
+        if not success:
+            self._balance += 5
+        else:
+            self._num_charges += 1
+            if self._num_charges > self.MAX_CHARGES:
+                self._balance += 1
+            
+        return success
+    
+    def process_month(self):
+        if self._balance > 0:
+            monthly_factor = pow(1+self._apr, 1/12)
+            self._balance *= monthly_factor
+        self._num_charges = 0 #reset the counter at the beginning of each month
+
+#R2.29
+
+class CreditCardLateFee(PredatoryCreditCard):
+    MINIMUM_PAYMENT_PERCENTAGE = 0.1
+    LATE_FEE = 10
+
+    def __init__(self, customer, bank, acnt, limit, apr):
+        super().__init__(customer, bank, acnt, limit)
+        self._minimum_payment = 0
+
+    def process_month(self):
+        super().process_month()
+        if self._minimum_payment > 0:
+           self._balance += self.LATE_FEE 
+        if self._balance > 0:
+            self._minimum_payment = self._balance * self.MINIMUM_PAYMENT_PERCENTAGE
+
+    def make_payment(self, value):
+        if super().make_payment(value):
+            self._minimum_payment = max(0, self._minimum_payment - value)
+
+#R2.30
+
