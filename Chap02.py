@@ -360,3 +360,39 @@ print([x for x in ReversedSequenceIterator([1,2,3,4,5,6,7,8])])
 
 #R2.27
 
+class Range():
+    def __init__(self, start, stop = None, step = 1):
+        if step == 0: raise ValueError('step cannot be 0')
+        if stop is None:    #This is more robust than if stop == None, since it's ambiguous sometimes (ex. custom classes)
+            start, stop = 0, start
+            
+        self._length = max(0, (stop-start + step -1)//step)
+        
+        self._start = start
+        self._step = step
+        
+    def __len__(self):
+        return self._length
+    
+    def __getitem__(self, k):
+        if k<0:
+            k+= len(self)
+        if not 0<=k<self._length:
+            raise IndexError('index out of range')
+            
+        return self._start + k*self._step
+
+    def __contains__(self, k):
+        factor, reminder = divmod(k-self._start, self._step)
+        if reminder == 0:
+            if factor >= 0 and factor < len(self): return True
+        
+        return False
+
+r = Range(1,100,2)
+print (len(r), r[3], 4 in r, 5 in r)
+
+r = Range(-100, step = -1)
+print (len(r), r[101], 4 in r, -5 in r)
+
+#R2.28
