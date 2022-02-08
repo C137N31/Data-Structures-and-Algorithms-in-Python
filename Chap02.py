@@ -487,3 +487,16 @@ class AbsDiffProgression(Progression):
 
 #R2.32
 
+class SqareRootProgression(Progression):
+    def __init__(self, first=65536):
+        super().__init__(first)
+        self._prev = first * first
+    
+    def _advance(self):
+        self._prev, self._current = self._current, self._current**0.5
+
+srp = SqareRootProgression()
+srp.print_progression(8)
+
+#P2.33
+
