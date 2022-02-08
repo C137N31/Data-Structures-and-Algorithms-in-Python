@@ -500,3 +500,38 @@ srp.print_progression(8)
 
 #P2.33
 
+class Polynomial():
+    def __init__(self, length=3):
+        self._coords = [0]*length
+
+    def __len__(self):
+        return len(self._coords)
+
+    def __getitem__(self, index):
+        if index >= len(self): raise IndexError('Index out of range')
+
+        return self._coords[index]
+    
+    def __setitem__(self, index, value):
+        try:
+            self._coords[index] = value
+        except Exception as e:
+            print(e)
+    
+    def derivative(self):
+        result = Polynomial(len(self)-1)
+        for i in range(1,len(self)):
+            result._coords[i-1] = self._coords[i]*i
+        return result
+
+p = Polynomial(4)
+p[0]=2
+p[1]=4
+p[2]=5
+p[3]=8
+d = p.derivative()
+for i in range(len(d)):
+    print(d[i])
+
+#P2.34
+
