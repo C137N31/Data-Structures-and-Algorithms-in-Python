@@ -444,3 +444,29 @@ class CreditCardLateFee(PredatoryCreditCard):
 
 #R2.30
 
+class PredatoryCreditCard2(CreditCard):
+    MAX_CHARGES = 10
+
+    def __init__(self, customer, bank, acnt, limit, apr):
+        super().__init__(customer, bank, acnt, limit)
+        self._apr = apr
+        self._num_charges = 0
+        
+    def charge(self, price):
+        success = super().charge(price)
+        if not success:
+            super()._set_balance(super()._get_balance + 5)
+        else:
+            self._num_charges += 1
+            if self._num_charges > self.MAX_CHARGES:
+                super()._set_balance(super()._get_balance + 1)
+            
+        return success
+    
+    def process_month(self):
+        if super()._get_balance > 0:
+            monthly_factor = pow(1+self._apr, 1/12)
+            super()._set_balance(super()._get_balance * monthly_factor)
+        self._num_charges = 0 #reset the counter at the beginning of each month
+        
+#R2.31        
