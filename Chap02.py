@@ -275,3 +275,45 @@ max(0, (stop - start + step - 1) // step) = 2**63 / 2**7 = 2**56
 
 #R2.22
 
+from abc import ABCMeta, abstractmethod
+
+class Sequence(metaclass = ABCMeta):
+    @abstractmethod
+    def __len__(self):
+        pass
+        
+    @abstractmethod
+    def __getitem__(self, index):
+        pass
+        
+    def __contains__(self, val):
+        for i in range(len(self)):
+            if self[j] == val: return True
+        return False #if it wasn't found
+    
+    def count(self, val):
+        k = 0
+        for j in range(len(self)):
+            if self[j] == val: k+=1
+        return k
+
+    def __eq__(self, other):
+        if len(self) != len(other):
+            return False
+        else:
+            for i in range(len(self)):
+                if self[i] != other[i]: return False
+        return True
+    
+#R2.23    
+
+    def __lt__(self, other):
+        for i in range(min(len(self), len(other))):
+            if self[i] < other[i]: return True
+            elif self[i] > other[i]: return False
+        
+        if len(self) < len(other): return True
+        else: return False
+        
+#R2.24
+
