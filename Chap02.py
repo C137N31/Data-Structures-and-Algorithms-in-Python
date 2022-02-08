@@ -569,3 +569,71 @@ b.plot()
 
 #P2.35
 
+import random
+
+class AliceBot():
+    ACT_CHANCE = 0.3
+
+    def __init__(self):
+        self._current_packet = None
+
+    def act(self):
+        if random.random() < self.ACT_CHANCE:
+            self._current_packet = self._create_packet()
+            return True
+        else: return False
+
+    def _create_packet(self):
+        len = random.randint(5,20)
+        packet = [' ']*len
+        for i in range(len):
+            packet[i] = chr(random.randint(ord('A'),ord('z')))
+        return "".join(packet)
+
+    def get_packet(self):
+        return self._current_packet
+
+    def delete_packet(self):
+        self._current_packet = None
+
+class BobBot():
+    def __init__(self):
+        pass
+
+    def check_packet(self, other):
+        if other.check_packet(): return True
+        else: return False
+
+    def delete_packet(self, other):
+        other.delete_packet()
+
+class InternetBot():
+    def __init__(self):
+        self._new_packet = False
+        self._Alice = None
+    
+    def check_packet(self):
+        if self._Alice.get_packet() is not None: return True
+        else: return False
+
+    def delete_packet(self):
+        self._Alice.delete_packet()
+
+    def assign_alice(self, alice):
+        self._Alice = alice
+
+Alice = AliceBot()
+Inter = InternetBot()
+Inter.assign_alice(Alice)
+Bob = BobBot()
+
+for i in range(10):
+    print(f"Time is {i}")
+    if Alice.act(): 
+        print("Create packet", Alice.get_packet())
+    if Bob.check_packet(Inter):
+        print("Bob receive packet")
+        Bob.delete_packet(Inter)
+        
+#P2.36
+
