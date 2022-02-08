@@ -195,3 +195,12 @@ print(v1,-v2)
 
 #R2.15
 
+class VectorD(Vector):
+    def __init__(self, d):
+        if isinstance(d, int):
+            super().__init__(d)
+        else:
+            self._coords = d
+
+#R2.16            
+
