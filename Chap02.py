@@ -535,3 +535,37 @@ for i in range(len(d)):
 
 #P2.34
 
+class CharFreq():
+    def __init__(self, filepath):
+        self._filepath = filepath
+        self._total_char = 0
+        self._char = [0]*26
+
+        self._readfile()
+
+    def _readfile(self):
+        fp = open(self._filepath)
+        ft = fp.read().lower()
+
+        for char in ft:
+            if self._check_char(char):
+                self._char[ord(char)-ord('a')] += 1
+        self._total_char = sum(self._char)
+        
+        fp.close()
+
+    def _check_char(self, char):
+        if ord(char) >= ord('a') and ord(char) <= ord('z'): return True
+        else: return False
+
+    def plot(self):
+        max_count = max(self._char)
+        for i in range(len(self._char)):
+            print(chr(ord('a')+i), 'X'*int(10*self._char[i]/max_count))
+        print(self._char)
+
+b = CharFreq("Project/Exercises/Chap01/test.txt")
+b.plot()
+
+#P2.35
+
