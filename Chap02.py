@@ -691,3 +691,47 @@ class Ecosystem():
 
 river = Ecosystem()
 river.print(2)
+
+#P2.39
+
+from abc import abstractmethod, ABCMeta
+import math
+
+class Polygon(metaclass = ABCMeta):
+    def __init__(self, sides = [1,1,1], side_num = 3):
+        self._sides = sides
+        self._side_num = side_num
+
+    @abstractmethod
+    def area(self):
+        pass
+    
+    @abstractmethod
+    def perimeter(self):
+        pass
+        
+    def __repr__(self):
+        return(str(self._sides))
+
+class Triangle(Polygon):
+    def __init__(self, sides):
+        super().__init__(sides, 3)
+        self._perimeter = self.perimeter()
+        self._area = self.area()
+
+    def perimeter(self):
+        return(sum(self._sides))
+
+    def area(self):
+        p = self._perimeter / 2
+        a = p
+        for s in self._sides:
+            a *= (p-s)
+        return a**0.5
+
+class IsoscelesTriangle(Triangle):
+    def __init__(self, a, b):
+        super().__init__([a,a,b])
+
+t1 = IsoscelesTriangle(5,8)        
+print(t1.perimeter(), t1.area())
