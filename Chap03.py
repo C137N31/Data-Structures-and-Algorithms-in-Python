@@ -180,3 +180,16 @@ O(nlogn)
 
 best O(logn) for all odd
 worst O(n) for all even
+
+#R3.32
+
+O(1)+O(2)+...+O(n)=O(1+2+...+n)=O(n(n+1)/2)=O(n**2)
+
+#R3.33
+
+Al's algorithm f(n)=Cnlogn and Bob's algorithm g(n)=C'n**2 where Clog100=100C'
+
+#R3.34
+
+the chance to enjoy a meal is 1/x, x is the totoal number already tried
+the expected number is the integral of 1/x which is ln(x)
