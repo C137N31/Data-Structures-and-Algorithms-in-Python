@@ -637,3 +637,57 @@ for i in range(10):
         
 #P2.36
 
+import random
+
+class Ecosystem():
+    RIVER_LEN = 10
+
+    def __init__(self):
+        self._river = [0]*self.RIVER_LEN
+        self._move  = [0]*self.RIVER_LEN
+
+        for i in range(self.RIVER_LEN):
+            self._river[i] = random.randint(-1,1) # -1: Fish; 1: Bear
+
+    def __next__(self):
+        self._move[0] = random.randint(0,1)
+        self._move[self.RIVER_LEN-1] = random.randint(-1,0)
+        for i in range(1, self.RIVER_LEN-1):
+            self._move[i] = random.randint(-1,1)
+
+        for i in range(self.RIVER_LEN):
+            if self._move[i] == -1:
+                if self._river[i-1] * self._river[i] == 1:
+                    self._create(self._river[i]) 
+                elif self._river[i-1] == 0:
+                    self._river[i-1] = self._river[i]
+                elif self._river[i-1] == -1 and self._river[i] == 1:
+                    self._river[i-1] = 1
+                self._river[i] = 0
+            elif self._move[i] == 1:
+                if self._river[i+1] * self._river[i] == 1:
+                    self._create(self._river[i]) 
+                elif self._river[i+1] == 0:
+                    self._river[i+1] = self._river[i]
+                elif self._river[i+1] == -1 and self._river[i] == 1:
+                    self._river[i+1] = 1
+                self._river[i] = 0
+            
+    def _create(self,animal):
+        loc0 = []
+        for i in range(self.RIVER_LEN):
+            if self._river[i] == 0:
+                loc0.append(i)
+        
+        new_loc = random.choice(loc0)
+        self._river[new_loc] = animal
+
+    def print(self, n):
+        print ('river', self._river)
+        for i in range(n):
+            next(self)
+            print ('move ', self._move)
+            print ('river', self._river)
+
+river = Ecosystem()
+river.print(2)
