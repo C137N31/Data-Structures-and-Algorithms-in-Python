@@ -145,4 +145,38 @@ nlogn > n when n > e so logn > 1
 f(n) <= ceil(f(n)) <= f(n)+1
 
 #R3.23
+O(1+n+1) = O(n)
 
+#R3.24
+O(1+n/2+1) = O(n)
+
+#R3.25
+O(1+n+n*(n+1)/2+1) = O(n**2)
+
+#R3.26
+O(1+n+1) = O(n)
+
+#R3.27
+O(1+n+n*n*(n+1)/2+1+1) = O(n**3)
+
+#R3.28
+
+         1 second          1 hour            1 month           1 century
+logn     10**300000
+n        300000*log10
+nlogn    
+n**2
+2**n
+
+#R3.29
+
+O(nlogn)
+
+#R3.30
+
+O(nlogn)
+
+#R3.31
+
+best O(logn) for all odd
+worst O(n) for all even
