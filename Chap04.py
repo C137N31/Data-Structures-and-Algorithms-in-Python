@@ -31,3 +31,24 @@ def power(x, n):
 print(power(2, 18))
 
 #R4.4
+
+def reverse(s, start, stop):
+    if start >= stop - 1:
+        return
+    s[start], s[stop-1] = s[stop-1], s[start]
+    reverse(s, start+1, stop-1)
+    return
+
+s = [4,3,6,2,6]
+reverse(s,0,5)
+print(s)
+
+#R4.6
+
+def harmonic(n):
+    if n == 1:
+        return 1
+    
+    return harmonic(n-1) + 1/n
+
+print(harmonic(5))
